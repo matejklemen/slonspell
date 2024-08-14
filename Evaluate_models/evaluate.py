@@ -5,7 +5,7 @@ from classla import Pipeline
 # Initialize the pipeline
 nlp = Pipeline('sl', processors='tokenize,ner')
 
-api_key = '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'
+api_key = '' # ADD API KEY HERE
 
 client = OpenAI(api_key=api_key)
 model_to_use = ''  # 'gpt-3.5-turbo-0125' 'gpt-4-0125-preview' 'gpt-3.5-turbo-1106' 'gpt-4-1106-preview'
@@ -560,56 +560,23 @@ def label_spelling_mistakes_in_file(file_path, output_file_path):
 
 
 if __name__ == "__main__":
-    # use_chatgpt_4()
-    #
-    # print("lektor: SloNSpell")
-    # evaluate_on_annotated_file("source_target_files/lektor/lektor-combined-source-aligned.txt", "source_target_files/lektor/lektor-combined-target-2.txt", f"SloNSpell/lektor/SloNSpell_lektor_corrected_data-formatted.txt", include_names=True)
-    #
-    # print("lektor: ChatGpt-4")
-    # evaluate_on_annotated_file("source_target_files/lektor/lektor-combined-source-aligned.txt", "source_target_files/lektor/lektor-combined-target-2.txt", f"ChatGPT/lektor/ChatGPT-4-lektor-aligned-formatted.txt", include_names=True)
-    #
-    # print("lektor: SloSpell")
-    # evaluate_on_annotated_file("source_target_files/lektor/lektor-combined-source-aligned.txt", "source_target_files/lektor/lektor-combined-target-2.txt", f"SloSpell/lektor/slospell_preds_lektor-spelling-aligned.txt", include_names=True)
-    #
-    # print("lektor: HunSpell")
-    # evaluate_on_annotated_file("source_target_files/lektor/lektor-combined-source-aligned.txt",
-    #                            "source_target_files/lektor/lektor-combined-target-2.txt",
-    #                            f"hunspell/lektor/hunspell_preds_lektor-spelling.txt", include_names=True)
-    #
-    # print("lektor: LanguageTool")
-    # evaluate_on_annotated_file("source_target_files/lektor/lektor-combined-source-aligned.txt",
-    #                            "source_target_files/lektor/lektor-combined-target-2.txt",
-    #                            f"LanguageTool/lektor/languagetool_preds_lektor-spelling 1.txt", include_names=True)
+    use_chatgpt_4()
 
-    evaluate_solar_fine_tuned_slollama()
+    print("lektor: SloNSpell")
+    evaluate_on_annotated_file("source_target_files/lektor/lektor-combined-source-aligned.txt", "source_target_files/lektor/lektor-combined-target-2.txt", f"SloNSpell/lektor/SloNSpell_lektor_corrected_data-formatted.txt", include_names=True)
 
+    print("lektor: ChatGpt-4")
+    evaluate_on_annotated_file("source_target_files/lektor/lektor-combined-source-aligned.txt", "source_target_files/lektor/lektor-combined-target-2.txt", f"ChatGPT/lektor/ChatGPT-4-lektor-aligned-formatted.txt", include_names=True)
 
-    # evaluate_using_chatGPT("source_target_files/lektor/lektor-combined-source-aligned.txt", "source_target_files/lektor/lektor-combined-target-2-formatted.txt", "SloNSpell/lektor/SloNSpell_aligned_lektor_corrected_data.txt")
+    print("lektor: SloSpell")
+    evaluate_on_annotated_file("source_target_files/lektor/lektor-combined-source-aligned.txt", "source_target_files/lektor/lektor-combined-target-2.txt", f"SloSpell/lektor/slospell_preds_lektor-spelling-aligned.txt", include_names=True)
 
-    # reformat_chatgpt_annotated_file("ChatGPT/šolar/solar_target_napake_č.txt", "ChatGPT/šolar/corrected-gpt-4-0125-preview.txt", "ChatGPT/šolar/corrected-gpt-4-reformatted.txt")
+    print("lektor: HunSpell")
+    evaluate_on_annotated_file("source_target_files/lektor/lektor-combined-source-aligned.txt",
+                               "source_target_files/lektor/lektor-combined-target-2.txt",
+                               f"hunspell/lektor/hunspell_preds_lektor-spelling.txt", include_names=True)
 
-    # reformat_chatgpt_annotated_file("source_target_files/lektor/lektor-combined-target-formatted.txt",
-    #                                 "ChatGPT/lektor/corrected-gpt-4-0125-preview.txt",
-    #                                 "ChatGPT/lektor/corrected-gpt-4-reformatted.txt")
-
-    # reformat_chatgpt_annotated_file("ChatGPT/synthetic/target.txt",
-    #                                 "ChatGPT/synthetic/corrected-gpt-4-0125-preview.txt",
-    #                                 "ChatGPT/synthetic/corrected-gpt-4-reformatted.txt")
-
-    # evaluate_using_chatGPT("lektor/lektor-combined-source.txt", "source_target_files/lektor/lektor-combined-target-2.txt", f"lektor/corrected-{model_to_use}.txt")
-
-    # reformat_evaluated_file("ChatGPT/šolar/solar_target_napake_č.txt", "ChatGPT/šolar/corrected-gpt-4-reformatted.txt", "ChatGPT/šolar/ChatGPT-4-šolar-formatted.txt")
-
-    # reformat_evaluated_file("ChatGPT/synthetic/source.txt", "ChatGPT/synthetic/corrected-gpt-4-reformatted.txt", "ChatGPT/synthetic/ChatGPT-4-synthetic-formatted.txt")
-
-    # reformat_evaluated_file("ChatGPT/lektor/lektor-combined-source.txt", "ChatGPT/lektor/corrected-gpt-4-reformatted.txt", "ChatGPT/lektor/ChatGPT-4-lektor-formatted.txt")
-
-    # realign_all_files()
-    #
-    # check_num_lines_and_words_in_lines()
-
-    # label_spelling_mistakes_in_file("source_target_files_nestandardno/lektor/lektor_source_pT_pZ-shortened-označeno-combined.txt", "source_target_files_nestandardno/lektor/lektor_just_mistakes.txt")
-    # label_spelling_mistakes_in_file("SloNSpell/lektor/SloNSpell_lektor_corrected_data.txt", "SloNSpell/lektor/lektor_just_mistakes.txt")
-
-    # label_spelling_mistakes_in_file("source_target_files/lektor/lektor-combined-target-2.txt", "source_target_files/lektor/lektor-combined-target-2-formatted.txt")
-
+    print("lektor: LanguageTool")
+    evaluate_on_annotated_file("source_target_files/lektor/lektor-combined-source-aligned.txt",
+                               "source_target_files/lektor/lektor-combined-target-2.txt",
+                               f"LanguageTool/lektor/languagetool_preds_lektor-spelling 1.txt", include_names=True)
